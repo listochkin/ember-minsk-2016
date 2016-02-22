@@ -2,19 +2,19 @@ export default function() {
 
   // These comments are here to help you get started. Feel free to delete them.
 
-  this.get('/rooms', function (db, request) {
+  this.get('/rooms', function (db) {
     return {
       data: db.rooms
-    }
+    };
   });
-    // this.get('/contacts/:id', function(db, request) {
-    //   var contactId = +request.params.id;
 
-    //   return {
-    //     contact: db.contacts.find(contactId),
-    //     addresses: db.addresses.where({contact_id: contactId})
-    //   };
-    // });
+  this.get('/rooms/:id', function (db, request) {
+    const roomId = +request.params.id;
+
+    return {
+      data: db.rooms.filter(room => room.id === roomId)
+    };
+  });
 
   /*
     Config (with defaults).
