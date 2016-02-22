@@ -1,6 +1,10 @@
 <ul data-test="room-list">
   {{#each model as |room|}}
-    <li>{{room.name}}</li>
+    <li>           {{! :room_id :room_name}}
+      {{#link-to 'room' room.id room.name}}
+        {{room.name}}
+      {{/link-to}}
+     </li>
   {{/each}}
 </ul>
 
